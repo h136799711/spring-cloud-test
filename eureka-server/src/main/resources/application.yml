@@ -1,0 +1,14 @@
+server:
+  port: 8002
+spring:
+  banner:
+    location: classpath:banner.txt
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

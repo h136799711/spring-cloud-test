@@ -9,6 +9,7 @@ spring:
         git:
           uri: https://github.com/h136799711/spring-cloud-test.git
           search-paths: config-server/config-repo
-          #uri: ${HOME}/Desktop/config
+        overrides:
+          copyright: hebidu
   profiles:
     active: default
