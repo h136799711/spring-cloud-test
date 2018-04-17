@@ -11,4 +11,4 @@ spring:
           search-paths: config-server/config-repo
           #uri: ${HOME}/Desktop/config
   profiles:
-    active: dev
+    active: default

@@ -8,6 +8,6 @@ spring:
     config:
       server:
         git:
-          #uri: https://github.com/h136799711/spring-cloud-test.git
-          #search-paths: config-server/config-repo
-          uri: /Users/git/spring-cloud-test/
+          uri: https://github.com/h136799711/spring-cloud-test.git
+          search-paths: config-server/config-repo
+          #uri: /Users/git/spring-cloud-test/
