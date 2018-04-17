@@ -3,7 +3,6 @@ server:
 spring:
   application:
     name: spring-cloud-config-server
-
   cloud:
     config:
       server:
@@ -11,3 +10,5 @@ spring:
           uri: https://github.com/h136799711/spring-cloud-test.git
           search-paths: config-server/config-repo
           #uri: ${HOME}/Desktop/config
+  profiles:
+    active: dev
