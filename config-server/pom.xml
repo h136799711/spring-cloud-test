@@ -37,6 +37,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- spring.cloud.bus with amqp -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
