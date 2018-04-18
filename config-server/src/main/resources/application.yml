@@ -14,11 +14,6 @@ spring:
   profiles:
     active: default
 
-  rabbitmq:
-    host: localhost
-    port: 8004
-    username: springcloud
-    password: 136799711
 
 management:
   endpoints:
