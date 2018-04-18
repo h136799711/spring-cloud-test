@@ -16,7 +16,7 @@ spring:
 
   rabbitmq:
     host: localhost
-    port: 5672
+    port: 8004
     username: springcloud
     password: 136799711
 
