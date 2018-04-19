@@ -1,7 +1,9 @@
 spring:
   application:
-    name: eurekaserver-dev
+    name: eureka-server
   cloud:
     config:
       uri: http://localhost:8001
-      name: eurekaserver-dev
+      name: eureka-server
+      profile: dev
+      label: master
