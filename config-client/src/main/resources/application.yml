@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  ["health","info","shutdown", "refresh", "bus-refresh"]
+spring:
+  rabbitmq:
+    port: 5672
+    host: 127.0.0.1
+    password: 136799711
+    username: guest
