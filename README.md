@@ -25,7 +25,7 @@ port: 8002
 #3. spring-cloud-bus & spring-cloud-bus-amqp
 开启消息总线
 ####目前选择了 rabbitmq 驱动，也可以选择其它   
-*localhost:5672    
+*localhost:5672    or hebidu.cn hebidu
 guest   
 136799711*
 
