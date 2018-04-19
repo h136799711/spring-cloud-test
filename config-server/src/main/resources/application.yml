@@ -15,9 +15,10 @@ spring:
     active: default
   rabbitmq:
     port: 5672
-    host: 127.0.0.1
+    host: hebidu.cn
     password: 136799711
-    username: guest
+    username: hebidu
+    virtual-host: /
 
 
 management:
