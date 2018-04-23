@@ -1,7 +1,6 @@
+---
 server:
   port: 8002
-
----
 spring:
   profiles: eureka-peer1.hebidu.cn
 eureka:
@@ -9,9 +8,11 @@ eureka:
     hostname: eureka-peer1.hebidu.cn
   client:
     serviceUrl:
-      defaultZone: http://eureka-peer2.hebidu.cn:${server.port}/eureka/
+      defaultZone: http://eureka-peer2.hebidu.cn:8003/eureka/
 
 ---
+server:
+  port: 8003
 spring:
   profiles: eureka-peer2.hebidu.cn
 eureka:
@@ -19,7 +20,4 @@ eureka:
     hostname: eureka-peer2.hebidu.cn
   client:
     serviceUrl:
-      defaultZone: http://eureka-peer1.hebidu.cn:${server.port}/eureka/
-
-
-
+      defaultZone: http://eureka-peer1.hebidu.cn:8002/eureka/
