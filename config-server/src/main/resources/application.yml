@@ -12,17 +12,17 @@ spring:
         overrides:
           copyright: hebidu
   profiles:
-    active: default
+    active: dev
   rabbitmq:
     port: 5672
     host: hebidu.cn
     password: 136799711
     username: hebidu
     virtual-host: /
-
-
 management:
   endpoints:
     web:
       exposure:
         include:  ["health","info","shutdown", "refresh", "bus-refresh"]
+
+
