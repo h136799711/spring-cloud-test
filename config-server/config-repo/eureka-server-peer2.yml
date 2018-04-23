@@ -2,7 +2,7 @@ server:
   port: 8003
 eureka:
   instance:
-    hostname: eureka-peer2.hebidu.cn
+    hostname: eureka-single.hebidu.cn
   client:
     serviceUrl:
-      defaultZone: http://eureka-peer1.hebidu.cn:8002/eureka/
+      defaultZone: http://eureka-single.hebidu.cn:8002/eureka/

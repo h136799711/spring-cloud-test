@@ -5,5 +5,5 @@ spring:
     config:
       uri: http://localhost:8001
       name: eureka-server
-      profile: peer1
+      profile: dev-single
       label: master
