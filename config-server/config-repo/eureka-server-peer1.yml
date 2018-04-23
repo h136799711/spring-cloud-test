@@ -1,5 +1,5 @@
 server:
-  port: 8003
+  port: 8002
 eureka:
   instance:
     hostname: eureka-peer1.hebidu.cn
