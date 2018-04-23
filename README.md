@@ -21,6 +21,7 @@ management:
 
 #2. spring-cloud-eureka-server
 port: 8002
+port: 8003
 
 #3. spring-cloud-bus & spring-cloud-bus-amqp
 开启消息总线
