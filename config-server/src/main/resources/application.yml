@@ -12,7 +12,7 @@ spring:
         overrides:
           copyright: hebidu
   profiles:
-    active: dev
+    active: default
   rabbitmq:
     port: 5672
     host: hebidu.cn

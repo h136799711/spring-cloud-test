@@ -1,0 +1,20 @@
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8002/eureka/
+    registerWithEureka: true
+    fetchRegistry: false
+
+  instance:
+    appname: eureka.client.01
+    non-secure-port-enabled: true
+
+
+server:
+  port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info"]
