@@ -6,9 +6,9 @@ server:
 eureka:
   instance:
     hostname: eureka-single.hebidu.cn
-    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+    instance-id: eureka-single:${spring.application.name}:${spring.application.instance_id:${server.port}}
   client:
-    serviceUrl:
+    service-url:
       registerWithEureka: false
       fetchRegistry: false
       defaultZone: http://eureka-single.hebidu.cn:8002/eureka/
