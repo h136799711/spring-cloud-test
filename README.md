@@ -31,3 +31,9 @@ guest
 136799711*
 
 
+
+##  测试搭建的线上
+单点config-server
+http://spring.config.server.hebidu.cn:8001/
+单点eureka-server
+http://eureka-single.hebidu.cn:8002/
