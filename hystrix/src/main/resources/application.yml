@@ -1,0 +1,23 @@
+server:
+  port: 8083
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-single.hebidu.cn:8002/eureka/
+spring:
+  application:
+    name: microservice-hystrix-demo
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info", "hystrix.stream"]
+
+
+ # spring.application.name=hystrix-demo
+ ## management.endpoints.web.exposure.include=["health", "info", "hystrix.stream"]
+ # management.endpoint.hystrix.stream.enabled=true
+
+  #circuitBreaker.errorThresholdPercentage
+#  eu
+#  eureka.client.service-url.defaultZone=http://eureka-single.hebidu.cn:8002/eureka/
