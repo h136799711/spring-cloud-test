@@ -1,0 +1,26 @@
+server:
+  port: 6004
+spring:
+  application:
+    name: microservice-bookstore
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 136799711
+    url: jdbc:mysql://pmd.local.hebidu.cn:3306/bookstore
+#    username: hebidu
+ #   password: 364945361
+  #  url: jdbc:mysql://qqav.club:3306/bookstore
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+      ddl-auto: none
+    show-sql: true
+    generate-ddl: false
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://eureka-single.hebidu.cn:8002/eureka/
+
