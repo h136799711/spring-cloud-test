@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: microservice-bookstore
+  cloud:
+    config:
+      uri: http://spring.config.server.hebidu.cn:8001
+      profile: dev
+      label: master
