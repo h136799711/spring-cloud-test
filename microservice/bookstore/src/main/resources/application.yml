@@ -15,12 +15,18 @@ spring:
     hibernate:
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-      ddl-auto: none
-    show-sql: true
-    generate-ddl: false
+ #     ddl-auto: none
+#    show-sql: false
+#    generate-ddl: false
+    open-in-view: true
 
 eureka:
   client:
     service-url:
-      default-zone: http://eureka-single.hebidu.cn:8002/eureka/
+      defaultZone: http://eureka-single.hebidu.cn:8002/eureka/
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info"]

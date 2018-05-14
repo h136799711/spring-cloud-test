@@ -1,10 +1,18 @@
 package cn.hebidu.microservice.bookstore.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
+/**
+ *
+ */
 @Entity
 @Table(name = "bs_book_category", schema = "bookstore", catalog = "")
-public class BsBookCategoryEntity {
+public class BsBookCategoryEntity implements Serializable {
+
+
+    private static final long serialVersionUID = -286344104860138091L;
+
     private long id;
     private String cateName;
     private long createTime;
@@ -98,5 +106,17 @@ public class BsBookCategoryEntity {
         result = 31 * result + (int) type;
         result = 31 * result + sort;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "BsBookCategoryEntity{" +
+                "id=" + id +
+                ", cateName='" + cateName + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", type=" + type +
+                ", sort=" + sort +
+                '}';
     }
 }

@@ -1,14 +1,19 @@
 spring:
   application:
     name: eureka-single-server
+  profiles:
+    active: default
 server:
   port: 8002
+
 eureka:
   instance:
     hostname: eureka-single.hebidu.cn
+    #eureka-single.hebidu.cn
     instance-id: eureka-single:${spring.application.name}:${spring.application.instance_id:${server.port}}
+    #environment: test
   client:
+    registerWithEureka: false
+    fetchRegistry: false
     service-url:
-      registerWithEureka: false
-      fetchRegistry: false
-      defaultZone: http://eureka-single.hebidu.cn:8002/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
