@@ -1,7 +1,9 @@
 package cn.hebidu.microservice.bookstore.controller;
 
-import cn.hebidu.microservice.bookstore.entities.BsBookCategoryEntity;
+import cn.hebidu.microservice.bookstore.document.BsBookstoreCategory;
 import cn.hebidu.microservice.bookstore.repo.BsBookCategoryRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 
 @RestController
@@ -17,8 +20,10 @@ public class BsBookCategoryController {
 
     private static Logger log = LoggerFactory.getLogger(BsBookCategoryController.class);
 
-    final
-    BsBookCategoryRepository bookCategoryRepository;
+    private final BsBookCategoryRepository bookCategoryRepository;
+
+    @Autowired
+    ObjectMapper objectMapper;
 
     @Autowired
     public BsBookCategoryController(BsBookCategoryRepository bookCategoryRepository) {
@@ -26,10 +31,11 @@ public class BsBookCategoryController {
     }
 
     @RequestMapping(value = "/info", method = {RequestMethod.GET, RequestMethod.POST})
-    public String info(@RequestParam Long id) {
+    public Mono<BsBookstoreCategory> info(@RequestParam Mono<String> id) throws JsonProcessingException {
         log.error("id = " + id);
-        BsBookCategoryEntity entity = bookCategoryRepository.getOne(id);
+        Mono<BsBookstoreCategory> entity = bookCategoryRepository.findById(id);
         log.error("entity = " + entity.toString());
-        return entity.toString();
+        log.error("entity json" + objectMapper.writeValueAsString(entity));
+        return entity;
     }
 }
