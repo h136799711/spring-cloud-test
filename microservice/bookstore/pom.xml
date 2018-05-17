@@ -27,7 +27,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
+            <groupId>org.lombokproject</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.21</version>
             <scope>provided</scope>
@@ -63,15 +63,15 @@
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>io.reactivex.rxjava2</groupId>
-            <artifactId>rxjava</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.reactivex</groupId>
-            <artifactId>rxjava-reactive-streams</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.reactivex.rxjava2</groupId>-->
+            <!--<artifactId>rxjava</artifactId>-->
+            <!--<version>2.1.1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>io.reactivex</groupId>-->
+            <!--<artifactId>rxjava-reactive-streams</artifactId>-->
+        <!--</dependency>-->
         <!-- MongoDB  START -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -96,10 +96,10 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

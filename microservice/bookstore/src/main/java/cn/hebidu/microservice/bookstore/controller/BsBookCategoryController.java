@@ -2,40 +2,45 @@ package cn.hebidu.microservice.bookstore.controller;
 
 import cn.hebidu.microservice.bookstore.document.BsBookstoreCategory;
 import cn.hebidu.microservice.bookstore.repo.BsBookCategoryRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.reactivestreams.Publisher;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-
+@Slf4j
 @RestController
-@RequestMapping("/bookstore/category")
+@AllArgsConstructor
+@RequestMapping("/bookstore/")
 public class BsBookCategoryController {
-
-    private static Logger log = LoggerFactory.getLogger(BsBookCategoryController.class);
 
     private final BsBookCategoryRepository bookCategoryRepository;
 
-    @Autowired
-    ObjectMapper objectMapper;
-
-    @Autowired
-    public BsBookCategoryController(BsBookCategoryRepository bookCategoryRepository) {
-        this.bookCategoryRepository = bookCategoryRepository;
+    @GetMapping("/category")
+    public Flux<BsBookstoreCategory> list() {
+        return this.bookCategoryRepository.findAll();
     }
 
-    @RequestMapping(value = "/info", method = {RequestMethod.GET, RequestMethod.POST})
-    public Mono<BsBookstoreCategory> info(@RequestParam Mono<String> id) throws JsonProcessingException {
-        log.error("id = " + id);
-        Mono<BsBookstoreCategory> entity = bookCategoryRepository.findById(id);
-        log.error("entity = " + entity.toString());
-        log.error("entity json" + objectMapper.writeValueAsString(entity));
-        return entity;
+
+    @GetMapping("/category/info_contains/")
+    public Flux<BsBookstoreCategory> infoByContains(@RequestParam String cateName) {
+        return bookCategoryRepository.findBsBookstoreCategoriesByCateNameContains(cateName);
+    }
+
+    @GetMapping("/category/info")
+    public Flux<BsBookstoreCategory> info(@RequestParam String cateName) {
+        return bookCategoryRepository.findBsBookstoreCategoriesByCateNameContaining(cateName);
+    }
+
+    @PostMapping("/category/add")
+    public Mono<BsBookstoreCategory> add(@RequestBody Publisher<BsBookstoreCategory> bookstoreCategoryPublisher) {
+        return bookCategoryRepository.insert(bookstoreCategoryPublisher).single();
+    }
+
+    @GetMapping("/category/delete")
+    public Mono<Void> del(@RequestParam String id)
+    {
+        return bookCategoryRepository.deleteById(id);
     }
 }

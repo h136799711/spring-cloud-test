@@ -1,24 +1,29 @@
 server:
   port: 6004
 spring:
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/bookstore
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+      database: bookstore
   application:
     name: microservice-bookstore
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 136799711
-    url: jdbc:mysql://pmd.local.hebidu.cn:3306/bookstore
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+##    username: root
+ #   password: 136799711
+ #   url: jdbc:mysql://pmd.local.hebidu.cn:3306/bookstore
 #    username: hebidu
  #   password: 364945361
   #  url: jdbc:mysql://qqav.club:3306/bookstore
-  jpa:
-    hibernate:
-      naming:
-        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+ # jpa:
+  #  hibernate:
+  #    naming:
+   #     implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
  #     ddl-auto: none
 #    show-sql: false
 #    generate-ddl: false
-    open-in-view: true
+#    open-in-view: true
 
 eureka:
   client:
