@@ -5,8 +5,10 @@ import cn.hebidu.microservice.bookstore.repo.BsBookCategoryRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
-import org.springframework.data.domain.*;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -48,12 +50,11 @@ public class BsBookCategoryController {
 
 
     @GetMapping("/category/get_list")
-    public Flux<BsBookstoreCategory> getList(@RequestParam(required = false) String cateName,@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC)
-            Pageable pageable)
+    public Flux<BsBookstoreCategory> getList(@RequestParam(required = false) String cateName, @RequestParam(required = false, defaultValue = "1") Integer page, @RequestParam(required = false, defaultValue = "10") Integer size)
     {
 
         Sort sort = new Sort(Sort.Direction.DESC, "cate_name");
-        PageRequest request = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
+        PageRequest request = PageRequest.of(page, size, sort);
         log.info(request.toString() + " offset = " + request.getOffset() + "page_size = " + request.getPageSize());
 
 //        log.info(bsBookCategoryRepository.query(request).toString());
